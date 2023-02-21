@@ -7,43 +7,35 @@
  */
 void times_table(void)
 {
-	int i, j;
+	int i, j, times, ones, towes;
 
-	i = 0;
-
-	while (i <= 9)
+	for (i = 0; i <= 9; i++)
 	{
-		j = 0;
-
-		while (j <= 9)
+		for (j = 0; j <= 9; j++)
 		{
-			int times;
+			times = i * j;
+			twoes = times / 10;
+			ones = times % 10;
 
-			times = j * i;
-
-			if (times <= 9)
+			if (j == 0)
 			{
-				_putchar(times + '0');
+				_putchar('0');
 			}
-			else if (times > 9)
-			{
-				_putchar((times / 10) + '0');
-				_putchar((times % 10) + '0');
-			}
-
-			if (j < 9)
+			else if (times <= 9)
 			{
 				_putchar(',');
 				_putchar(' ');
-			}
-
-			if (times <= 9)
-			{
 				_putchar(' ');
+				_putchar(ones + '0');
 			}
-			j++;
+			else
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar(twoes + '0');
+				_putchar(ones + '0');
+			}
 		}
 		_putchar('\n');
-		i++;
 	}
 }
