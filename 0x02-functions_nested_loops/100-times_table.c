@@ -17,9 +17,9 @@ void print_times_table(int n)
 		{
 			for (j = 0; j <= n; j++)
 			{
-				product = row * column;
+				times = i * j;
 
-				if (column == 0)
+				if (j == 0)
 					_putchar('0');
 				else if (times < 10)
 				{
