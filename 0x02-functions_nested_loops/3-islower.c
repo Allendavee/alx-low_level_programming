@@ -3,18 +3,16 @@
 /**
  * _islower - function that checksfor lowercase character
  * @c: Parameter that is used to check
- * Return: Always 0 (SUCCESS)
+ * Return: 1 if c is lower 0 otherwise
  */
 int _islower(int c)
 {
-	if (c == 'a' && c <= 'z')
+	if (c >= 'a' && c <= 'z')
 	{
 		return (1);
 	}
-	else if (c == 'A' && c <= 'Z')
+	else
 	{
 		return (0);
 	}
-
-	return (0);
 }
