@@ -9,11 +9,14 @@ void print_rev(char *s)
 {
 	int i, j, lstr = 0;
 	char temp;
+	int len;
 
 	while (s[lstr] != '\0')
 	{
 		lstr++;
 	}
+
+	len = lstr;
 
 	for (i = 0; i < (lstr / 2); i++)
 	{
