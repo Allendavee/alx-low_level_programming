@@ -7,21 +7,22 @@
  */
 char *leet(char *str)
 {
-	int i, j;
+	int j = 0, i;
+	int low_letters[] = {97, 101, 111, 116, 108};
+	int upp_letters[] = {65, 69, 79, 84, 76};
+	int numbers[] = {52, 51, 48, 55, 49};
 
-	char leet_map[] = "44330771";
-	char letters[] = "aAeEoOtTlL";
-
-	for (i = 0; str[i] != '\0'; i++)
+	while (*(str + j) != '\0')
 	{
-		for (j = 0; j < 10; j += 2)
+		for (i = 0; i < 5; i++)
 		{
-			if (str[i] == letters[j] || str[i] == letters[j + 1])
+			if (*(str + j) == low_letters[i] || *(str + j) == upp_letters[i])
 			{
-				str[i] = leet_map[j / 2];
+				*(str + j) = numbers[i];
 				break;
 			}
 		}
+		j++;
 	}
 
 	return (str);
