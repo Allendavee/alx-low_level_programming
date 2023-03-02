@@ -4,11 +4,11 @@
  * _strcmp - Function that compare two strings
  * @s1: First pointer to string
  * @s2: Second pointer to string
- * Return: result
+ * Return: s1 - s2
  */
 int _strcmp(char *s1, char *s2)
 {
-	int i, result;
+	int i;
 
 	i = 0;
 
@@ -21,7 +21,5 @@ int _strcmp(char *s1, char *s2)
 		i++;
 	}
 
-	result = s1[i] - s2[i];
-
-	return (result);
+	return (s1[i] - s2[i]);
 }
