@@ -30,6 +30,6 @@ void print_number(int n)
 
 	for (; i >= 1; i /= 10)
 	{
-		_putchar(((m / count) % 10) + 48);
+		_putchar(((m / i) % 10) + 48);
 	}
 }
