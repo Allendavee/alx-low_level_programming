@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <string.h>
 
 /**
  * infinite_add - Function that adds two numbers stores the
@@ -13,44 +14,38 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i = 0, j = 0, op, bg, dr1, dr2, add = 0;
+	int carry = 0, len1 = strlen(n1), len2 = strlen(n2);
+	int max_len = len1 > len2 ? len1 : len2;
 
-	while (*(n1 + i) != '\0')
-		i++;
-	while (*(n2 + j) != '\0')
-		j++;
-	if (i >= j)
-		bg = i;
-	else
-		bg = j;
-	if (size_r <= bg + 1)
+	if (max_len + 1 > size_r)
 		return (0);
-	r[bg + 1] = '\0';
-	i--, j--, size_r--;
-	dr1 = *(n1 + i) - 48, dr2 = *(n2 + j) - 48;
-	while (bg >= 0)
+
+	r[max_len + 1] = '\0';
+
+	for (int i = 1; i <= max_len; ++i)
 	{
-		op = dr1 + dr2 + add;
-		if (op >= 10)
-			add = op / 10;
+		int digit1 = i <= len1 ? n1[len1 - i] - '0' : 0;
+		int digit2 = i <= len2 ? n2[len2 - i] - '0' : 0;
+		int sum = digit1 + digit2 + carry;
+
+		if (sum >= 10)
+		{
+			carry = 1;
+			sum -= 10;
+		}
 		else
-			add = 0;
-		if (op > 0)
-		*(r + bg) = (op % 10) + 48;
-		else
-			*(r + bg) = '0';
-		if (i > 0)
-			i--, dr1 = *(n1 + i) - 48;
-		else
-			dr1 = 0;
-		if (j > 0)
-			j--, dr2 = *(n2 + j) - 48;
-		else
-			dr2 = 0;
-		bg--, size_r--;
+		{
+			carry = 0;
+		}
+		r[max_len - i + 1] = sum + '0';
 	}
-	if (*(r) == '0')
-		return (r + 1);
-	else
+	if (carry)
+	{
+		r[0] = carry + '0';
 		return (r);
+	}
+	else
+	{
+		return (r + 1);
+	}
 }
