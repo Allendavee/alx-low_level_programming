@@ -35,14 +35,12 @@ int is_palindrome(char *s)
 	{
 		return (0);
 	}
-	else
-	{
-		int result;
 
-		s[len - 1] = '\0';
-		result = is_palindrome(s + 1);
-		s[len - 1] = s[0];
+	int result;
 
-		return (result);
-	}
+	s[len - 1] = '\0';
+	result = is_palindrome(s + 1);
+	s[len - 1] = s[0];
+
+	return (result);
 }
