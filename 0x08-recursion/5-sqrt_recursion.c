@@ -18,7 +18,7 @@ int _sqrt_recursion(int n)
 	}
 	else
 	{
-		int root =  _sqrt_recursion(n / 2);
+		unsigned int root =  _sqrt_recursion(n / 2);
 
 		if (root * root == n)
 		{
