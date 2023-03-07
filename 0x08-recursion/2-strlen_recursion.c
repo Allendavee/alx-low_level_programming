@@ -6,7 +6,7 @@
  * @s: Pointer to string
  * Return: void
  */
-int _strlen_recursive(char *s)
+int _strlen_recursion(char *s)
 {
 	if (*s == '\0')
 	{
