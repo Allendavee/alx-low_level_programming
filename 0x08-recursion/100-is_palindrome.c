@@ -17,6 +17,27 @@ int _strlen_recursion(char *s)
 }
 
 /**
+ * helper - Helper function for paliandrome
+ * @s: pointer to string
+ * @l: Integer
+ * Return: boolena
+ */
+
+int helper(char *s, int l)
+{
+	if (l < 1)
+	{
+		return (1);
+	}
+
+	if (*s == *(s + l))
+	{
+		return (helper(s + 1, l - 2));
+	}
+	return (0);
+}
+
+/**
  * is_palindrome - Functio that returns 1 if a string
  * is palindrome and 0 if not
  * @s: Pointer to string
@@ -27,20 +48,5 @@ int is_palindrome(char *s)
 {
 	int len = _strlen_recursion(s);
 
-	if (len <= 1)
-	{
-		return (1);
-	}
-	else if (s[0] != s[len - 1])
-	{
-		return (0);
-	}
-
-	int result;
-
-	s[len - 1] = '\0';
-	result = is_palindrome(s + 1);
-	s[len - 1] = s[0];
-
-	return (result);
+	return (helper(s, len - 1));
 }
