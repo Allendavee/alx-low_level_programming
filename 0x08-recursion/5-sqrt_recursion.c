@@ -12,9 +12,9 @@ int _sqrt_recursion(int n)
 }
 
 /**
- * _sqrt - _sqrt_recursion
- * @n: integer paramtr
- * @m: integer parameter
+ * _sqrt - Function that returns square root
+ * @n: First integer
+ * @m: Second Integer
  * Return: sqrt
  */
 
