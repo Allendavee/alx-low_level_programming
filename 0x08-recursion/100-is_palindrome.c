@@ -21,8 +21,13 @@ int is_palindrome(char *s)
 	}
 	else
 	{
+		int result;
+
 		s[len - 1] = '\0';
-		return (is_palindrome(s + 1));
+		result = is_palindrome(s + 1);
+		s[len -1] = s[0];
+
+		return (result);
 	}
 }
 
