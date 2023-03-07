@@ -8,29 +8,23 @@
  */
 int _sqrt_recursion(int n)
 {
-	if (n < 0)
-	{
-		return (-1);
-	}
-	else if (n <= 1)
-	{
-		return (n);
-	}
-	else
-	{
-		unsigned int root =  _sqrt_recursion(n / 2);
+	return (_sqrt(n, 1));
+}
 
-		if (root * root == n)
-		{
-			return (root);
-		}
-		else if (root * root < n)
-		{
-			return (root + 1);
-		}
-		else
-		{
-			return (-1);
-		}
-	}
+/**
+ * _sqrt - _sqrt_recursion
+ * @n: integer paramtr
+ * @i: integer parameter
+ * Return: sqrt
+ */
+
+int _sqrt(int n, int m)
+{
+	if (n < 0)
+		return (-1);
+	if ((m * m) > n)
+		return (-1);
+	if (m * m == n)
+		return (m);
+	return (_sqrt(n, m + 1));
 }
