@@ -63,6 +63,7 @@ char **strtow(char *str)
 {
 	if (str == NULL || *str == '\0')
 		return (NULL);
+
 	char **words;
 
 	words = (char **) malloc((MAX_WORDS + 1) * sizeof(char *));
