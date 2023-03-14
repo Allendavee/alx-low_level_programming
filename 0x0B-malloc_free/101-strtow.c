@@ -5,11 +5,11 @@
 #define MAX_WORD_LEN 1000
 
 /**
- * strlen - Function that returns length of a string
+ * str_len - Function that returns length of a string
  * @s: Pointer to string
  * Return: The length of the string
  */
-int strlen(char *s)
+int str_len(char *s)
 {
 	int len = 0;
 
@@ -21,13 +21,13 @@ int strlen(char *s)
 }
 
 /**
- * strcpy - Function that copies a string
+ * str_cpy - Function that copies a string
  * @dst: Pointer to string
  * @src: Second pointer to string
  * Return: void
  */
 
-void strcpy(char *dst, char *src)
+void str_cpy(char *dst, char *src)
 {
 	while (*src != '\0')
 	{
@@ -37,13 +37,13 @@ void strcpy(char *dst, char *src)
 }
 
 /**
- * strcmp - Function that compare two strings
+ * str_cmp - Function that compare two strings
  * @s1: First pointer to string
  * @s2: Second pointer to string
  * Return: 0 if equal, -1 if @s1 is less than @s2
  * and 1 if @s1 is greater
  */
-int strcmp(char *s1, char *s2)
+int str_cmp(char *s1, char *s2)
 {
 	while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
 	{
@@ -89,7 +89,7 @@ char **strtow(char *str)
 				{
 					goto error;
 				}
-				strcpy(word, word_start);
+				str_cpy(word, word_start);
 				word[word_len] = '\0';
 				words[word_count++] = word;
 			}
@@ -105,7 +105,7 @@ char **strtow(char *str)
 
 		if (word == NULL)
 			goto error;
-		strcpy(word, word_start);
+		str_cpy(word, word_start);
 		word[word_len] = '\0';
 		words[word_count++] = word;
 	}
