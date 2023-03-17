@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Enter the name of file to add, commit and push:"
+read Input
+git add $Input
+git commit -m "$Input"
+git push
+
+exit
