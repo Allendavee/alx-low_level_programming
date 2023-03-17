@@ -32,17 +32,18 @@ void error_exit(void)
  */
 int main(int argc, char **argv)
 {
-	int i = 0, j, len1 = 0, len2 = 0, *result;
+	int i, j, len1 = 0, len2 = 0;
+	int *result;
 	char *num1, *num2;
 
 	if (argc != 3)
 		error_exit();
 	num1 = argv[1], num2 = argv[2];
 
-	for ( ; num1[i]; i++)
+	for (i = 0; num1[i]; i++)
 		if (!_isdigit(num1[i]))
 			error_exit();
-	for ( ; num2[i]; i++)
+	for (i = 0; num2[i]; i++)
 		if (!_isdigit(num2[i]))
 			error_exit();
 	while (num1[len1])
@@ -65,9 +66,11 @@ int main(int argc, char **argv)
 			result[pos2] = sum % 10;
 		}
 	}
+	i = 0;
+
 	while (result[i] == 0 && i < len1 + len2 - 1)
 		i++;
-	for (; i < len1 + len2; i++)
+	for ( ; i < len1 + len2; i++)
 		printf("%d", result[i]);
 	printf("\n");
 	free(result);
