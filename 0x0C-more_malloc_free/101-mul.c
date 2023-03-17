@@ -32,21 +32,27 @@ void error_exit(void)
  */
 int main(int argc, char **argv)
 {
+	int i, j, len1, len2;
+	int *result;
+	char *num1;
+	char *num2;
+
+	len1 = 0;
+	len2 = 0;
+
 	if (argc != 3)
 		error_exit();
 
-	char *num1 = argv[1];
-	char *num2 = argv[2];
+	num1 = argv[1];
+	num2 = argv[2];
 
-	for (int i = 0; num1[i]; i++)
+	for (i = 0; num1[i]; i++)
 		if (!_isdigit(num1[i]))
 			error_exit();
 
-	for (int i = 0; num2[i]; i++)
+	for (i = 0; num2[i]; i++)
 		if (!_isdigit(num2[i]))
 			error_exit();
-
-	int len1 = 0, len2 = 0;
 
 	while (num1[len1])
 		len1++;
@@ -54,14 +60,14 @@ int main(int argc, char **argv)
 	while (num2[len2])
 		len2++;
 
-	int *result = calloc(len1 + len2, sizeof(int));
+	result = calloc(len1 + len2, sizeof(int));
 
 	if (result == NULL)
 		error_exit();
 
-	for (int i = len1 - 1; i >= 0; i--)
+	for (i = len1 - 1; i >= 0; i--)
 	{
-		for (int j = len2 - 1; j >= 0; j--)
+		for (j = len2 - 1; j >= 0; j--)
 		{
 			int product = (num1[i] - '0') * (num2[j] - '0');
 			int pos1 = i + j;
@@ -73,7 +79,7 @@ int main(int argc, char **argv)
 		}
 	}
 
-	int i = 0;
+	i = 0;
 
 	while (result[i] == 0 && i < len1 + len2 - 1)
 		i++;
