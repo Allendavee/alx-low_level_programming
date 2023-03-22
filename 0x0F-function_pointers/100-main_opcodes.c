@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 		printf("Error\n");
-		exit(98);
+		exit(1);
 	}
 
 	bytes = atoi(argv[1]);
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	if (bytes < 0)
 	{
 		printf("Error\n");
-		exit(99);
+		exit(2);
 	}
 
 	arr = (char *)main;
