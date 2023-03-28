@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Enter the name of file to add, commit:"
+read Input
+git add $Input
+echo "Enter a commit message:"
+read message
+git commit -m "$message"
+git push
+
+exit

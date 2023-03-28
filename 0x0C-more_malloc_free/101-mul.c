@@ -16,17 +16,20 @@ int _isdigit(char c)
 /**
  * error_exit - Prints an error message and exits with status 98
  */
+
 void error_exit(void)
 {
 	printf("Error\n");
 	exit(98);
 }
+
 /**
  * chec_argc - Function that checks argc
  * @argc: The argument to check
  *
  * Return: nothing
  */
+
 void check_argc(int argc)
 {
 	if (argc != 3)
@@ -46,6 +49,7 @@ void check_null(int *result)
 	if (val == NULL)
 		error_exit();
 }
+
 /**
  * main - Entry point
  *
