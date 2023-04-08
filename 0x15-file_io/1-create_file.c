@@ -32,7 +32,7 @@ int _strlen(char *s)
 int create_file(const char *filename, char *text_content)
 {
 	int fd, ret;
-	size_t len_of_text;
+	int len_of_text = 0;
 
 	if (filename == NULL)
 		return (-1);
@@ -41,16 +41,15 @@ int create_file(const char *filename, char *text_content)
 	if (fd == -1)
 		return (-1);
 
-	if (text_content != NULL)
-	{
-		len_of_text = _strlen(text_content);
-		ret = write(fd, text_content, len_of_text);
+	if (!text_content)
+		return (-1);
 
-		if (ret == -1 || (size_t) ret != text_len)
-		{
-			close(fd);
-			return (-1);
-		}
+	len_of_text = _strlen(text_content);
+	ret = write(fd, text_content, len_of_text);
+
+	if (ret == -1)
+	{
+		return (-1);
 	}
 	close(fd);
 	return (1);
