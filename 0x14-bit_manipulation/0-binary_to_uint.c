@@ -10,10 +10,10 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int ui;
+	unsigned int result;
 	int len, base_two;
 
-	if (!b)
+	if (b == NULL)
 		return (0);
 
 	ui = 0;
@@ -30,9 +30,9 @@ unsigned int binary_to_uint(const char *b)
 
 		if (b[len] & 1)
 		{
-			ui += base_two;
+			result += base_two;
 		}
 	}
 
-	return (ui);
+	return (result);
 }
