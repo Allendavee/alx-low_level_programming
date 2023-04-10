@@ -2,13 +2,14 @@
 #include <stdio.h>
 
 /**
- * error_file - checks if files can be opened.
+ * error_file - on that if files can be opened.
  * @file_from: file_from.
  * @file_to: file_to.
  * @argv: arguments vector.
- * Return: no return.
+ *
+ * Return: nothing.
  */
-void error_file(int file_from, int file_to, char *argv[])
+void error_handler(int file_from, int file_to, char *argv[])
 {
 	if (file_from == -1)
 	{
@@ -26,7 +27,8 @@ void error_file(int file_from, int file_to, char *argv[])
  * main - check the code for Holberton School students.
  * @argc: number of arguments.
  * @argv: arguments vector.
- * Return: Always 0.
+ *
+ * Return: Always 0 (SUCCESS).
  */
 int main(int argc, char *argv[])
 {
@@ -42,17 +44,17 @@ int main(int argc, char *argv[])
 
 	file_from = open(argv[1], O_RDONLY);
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
-	error_file(file_from, file_to, argv);
+	error_handler(file_from, file_to, argv);
 
 	nchars = 1024;
 	while (nchars == 1024)
 	{
 		nchars = read(file_from, buf, 1024);
 		if (nchars == -1)
-			error_file(-1, 0, argv);
+			error_handler(-1, 0, argv);
 		nwr = write(file_to, buf, nchars);
 		if (nwr == -1)
-			error_file(0, -1, argv);
+			error_handler(0, -1, argv);
 	}
 
 	err_close = close(file_from);
