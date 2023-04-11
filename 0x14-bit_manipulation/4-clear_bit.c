@@ -7,7 +7,7 @@
  *
  * Return: 1 if success, -1 if error occurred
  */
-int set_bit(unsigned long int *n, unsigned int index)
+int clear_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int revnum;
 	unsigned long int num;
