@@ -1,8 +1,7 @@
 #include "main.h"
 
 /**
- * set_bit - Function to print out the binary representation of
- * an unsigned long int
+ * set_bit - Function that sets the value of a bit to 1 at a given index
  * @n: Pointer to an unsigned long int
  * @index: The index to set the value to 1
  *
