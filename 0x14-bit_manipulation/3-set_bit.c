@@ -13,10 +13,12 @@ int set_bit(unsigned long int *n, unsigned int index)
 	unsigned long int revnum;
 	unsigned long int num;
 	unsigned long int count;
+	unsigned long int old_val;
 
 	revnum = 0;
 	count = 0;
 	num = 0;
+	old_val = *n;
 
 	if (index > 63)
 		return (-1);
@@ -26,9 +28,9 @@ int set_bit(unsigned long int *n, unsigned int index)
 		if (count == index)
 			revnum += 1;
 		else
-			revnum += n & 1;
+			revnum += old_val & 1;
 		count++;
-		n = n >> 1;
+		old_val = old_val >> 1;
 	}
 	while (count > 0)
 	{
